@@ -1,0 +1,45 @@
+COMO SUBIR ESTO A GITHUB
+========================
+
+Contenido de este zip:
+
+  index.html                 <- la pagina completa (fotos y fuentes van adentro)
+  assets/audio/fondo.mp3     <- musica de piano de la portada
+
+IMPORTANTE: respetar la estructura de carpetas tal cual esta.
+El codigo busca el audio en la ruta exacta "assets/audio/fondo.mp3",
+todo en minusculas. Vercel distingue mayusculas de minusculas
+(Windows no), asi que si cambia una letra, el audio no suena.
+
+PASOS
+-----
+1. Entrar al repositorio en github.com
+2. Add file > Upload files
+3. Arrastrar el archivo index.html Y la carpeta assets completa
+4. Commit changes
+5. Vercel redeploya solo en 1-2 minutos
+
+Si el repo ya tenia un index.html, este lo reemplaza.
+Los archivos que ya estaban y no vienen en este zip (por ejemplo las
+narraciones cap01.mp3 ... cap09.mp3) NO se borran: siguen donde estaban.
+
+PARA PROBARLO ANTES, EN TU COMPUTADORA
+--------------------------------------
+No alcanza con hacer doble clic en index.html: con file:// algunos
+navegadores bloquean la carga del mp3 y no vas a escuchar nada.
+
+Abrir una terminal, pararse en esta carpeta y correr:
+
+    python -m http.server
+
+Despues entrar a http://localhost:8000 desde el navegador.
+
+QUE CAMBIO RESPECTO AL ORIGINAL
+-------------------------------
+1. Se elimino la llamada rota this.updateDuck(), que tiraba el error
+   "Uncaught TypeError" cada vez que se cambiaba de pagina.
+2. Se saco la etiqueta "imaginado" al costado de los capitulos 7 y 8
+   en el indice.
+3. La musica de fondo arranca al apretar el boton de la portada,
+   queda en loop, y baja sola de volumen mientras suena la narracion
+   de un capitulo (vuelve a subir cuando termina).
